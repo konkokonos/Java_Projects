@@ -32,7 +32,7 @@ public class RadioStation {
             return null;
         }
         else {
-            LinkedList<Song> final_songs = new LinkedList<Song>(Arrays.asList(songs));
+            ArrayList<Song> final_songs = new ArrayList<Song>(Arrays.asList(songs));
             for (int i=0; i< final_songs.size(); i++) {
                 if(final_songs.get(i).getTitle().equals(songTitle))
                     final_songs.remove(i);
@@ -45,7 +45,7 @@ public class RadioStation {
                     return Double.compare(dist_1,dist_2);
                 }
             });
-            final_songs.addFirst(one_song);
+            final_songs.add(0,one_song);
             Song[] sorted_songs = new Song[final_songs.size()];
             sorted_songs = final_songs.toArray(sorted_songs);
             return sorted_songs;
