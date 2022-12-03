@@ -15,7 +15,7 @@ public class RadioStation {
         }
         return null;
     }
-    public Song[] getSimilar(Song[] songs,String songTitle,int n) {
+    public Song[] getSimilar(Song[] songs,String songTitle) {
         Song one_song = is_in_songs(songTitle, songs);
         if(one_song == null){
             System.out.print("There is no such song title!");
@@ -27,7 +27,7 @@ public class RadioStation {
                 if(final_songs.get(i).getTitle().equals(songTitle))
                     final_songs.remove(i);
             }
-            if (n == 1) {
+            if (InternetRadio.n == 1) {
                 final_songs.sort(new Comparator<Song>() {
                     @Override
                     public int compare(Song song_1, Song song_2) {
@@ -37,8 +37,8 @@ public class RadioStation {
                     }
                 });
             }
-            else if(n == 2){
-                Collections.sort(final_songs, new Comparator<Song>() {
+            else if(InternetRadio.n == 2){
+                final_songs.sort(new Comparator<Song>() {
                     @Override
                     public int compare(Song song_1, Song song_2) {
                         double dist_1 = manhattan_distance(song_1, one_song);

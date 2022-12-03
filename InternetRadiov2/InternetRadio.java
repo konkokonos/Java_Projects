@@ -3,6 +3,8 @@ package InternetRadiov2;
 import java.util.Scanner;
 
 public class InternetRadio {
+
+    public static int n;
     public static void main(String[] args) {
 
         Song[] sorted_songs = {};
@@ -26,9 +28,11 @@ public class InternetRadio {
         String distance = scanner.nextLine();
         RadioStation radiostation = new RadioStation();
         if ("Euclidian".equals(distance)) {
-            sorted_songs = radiostation.getSimilar(songs,"Heroes",1);
+            n = 1;
+            sorted_songs = radiostation.getSimilar(songs,"Heroes");
         } else if ("Manhattan".equals(distance)) {
-            sorted_songs = radiostation.getSimilar(songs,"Heroes",2);
+            n = 2;
+            sorted_songs = radiostation.getSimilar(songs,"Heroes");
         }
         System.out.println("Radio station songs for you:");
         print_songs(sorted_songs);
